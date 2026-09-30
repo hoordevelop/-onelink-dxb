@@ -18,7 +18,7 @@ npm run build
 
 ## Replace the official logo
 
-The site does not invent a logo. Add the official file here:
+The official gold lockup is already installed. To replace it later, save a new file here:
 
 ```
 public/images/logo.png
@@ -28,9 +28,9 @@ The header and footer render that file at a fixed height with automatic width, s
 
 Use a light or transparent logo. The background is deep navy.
 
-## Replace fleet and skyline photos
+## Fleet and skyline photos
 
-These files are stylized stand-ins. Drop official photography on top of the same paths:
+The bike and car photos are already in place: navy blue, with gold wheels and trim.
 
 ```
 public/images/hero-bike.png
@@ -38,13 +38,9 @@ public/images/hero-car.png
 public/images/dubai-skyline.png
 ```
 
-Do not put a company logo on the vehicle art unless it is part of the official photograph.
+Replace a file on the same path to swap the picture. Do not put a company logo on the vehicle art unless it is part of the official photograph.
 
-To redraw the stand-in illustrations:
-
-```bash
-node scripts/render-images.mjs
-```
+`scripts/render-images.mjs` redraws the old line illustrations and will overwrite the bike and car photos. Do not run it unless you want those drawings back.
 
 ## Contact form
 

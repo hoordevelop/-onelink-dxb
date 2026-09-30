@@ -12,7 +12,7 @@ export function Footer({ logoSrc }: FooterProps) {
     <footer className="border-t border-[#007BFF]/20 bg-[#01080F]">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
-          <Logo src={logoSrc} imageClassName="h-12" />
+          <Logo src={logoSrc} imageClassName="h-36 max-w-none sm:h-40" />
           <p className="font-display text-lg text-white">{site.name}</p>
           <p className="text-sm tracking-[0.16em] text-[#9CC9FF]">{site.tagline}</p>
           <p className="text-sm text-[#C5D7E6]">{site.location}</p>

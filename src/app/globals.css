@@ -132,7 +132,7 @@
     @apply font-sans;
     color-scheme: dark;
     scroll-behavior: smooth;
-    scroll-padding-top: 5.25rem;
+    scroll-padding-top: 7rem;
   }
   body {
     @apply bg-background text-foreground;

@@ -38,10 +38,10 @@ export function About({ images }: AboutProps) {
             {images.bike ? (
               <Image
                 src={images.bike}
-                alt="Delivery motorcycle with a rear cargo box"
+                alt="Blue and gold delivery scooter with a cargo box"
                 fill
                 sizes="(max-width: 1024px) 100vw, 560px"
-                className="object-contain p-8"
+                className="object-cover"
               />
             ) : null}
           </div>

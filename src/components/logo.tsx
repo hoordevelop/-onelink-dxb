@@ -21,7 +21,7 @@ export function Logo({ src, className, imageClassName }: LogoProps) {
         src={src}
         alt="OneLink Delivery Service"
         className={cn(
-          "h-11 w-auto max-w-[220px] object-contain object-left",
+          "h-[4.75rem] w-auto object-contain object-left sm:h-20",
           imageClassName,
         )}
       />

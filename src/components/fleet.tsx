@@ -9,14 +9,14 @@ const fleet = [
     title: "BIKE",
     line: "Fast & Flexible",
     detail: "City runs for documents, parcels, and urgent orders.",
-    alt: "Delivery motorcycle with a rear cargo box",
+    alt: "Blue and gold delivery scooter with a cargo box",
   },
   {
     key: "car" as const,
     title: "CAR",
     line: "Comfortable & Secure",
     detail: "Larger, sensitive, or multi-item deliveries across Dubai.",
-    alt: "Dark delivery sedan with an electric blue light line",
+    alt: "Blue and gold delivery sedan",
   },
 ];
 
@@ -41,15 +41,15 @@ export function Fleet({ images }: FleetProps) {
             const src = images[item.key];
             return (
               <Reveal key={item.title} delay={index * 0.08}>
-                <article className="group overflow-hidden rounded-xl border border-[#008CFF]/40 bg-[#061A2D] shadow-[0_30px_80px_-36px_rgba(0,123,255,0.85)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_36px_90px_-30px_rgba(0,140,255,0.75)]">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-[radial-gradient(circle_at_center,rgba(0,123,255,0.18),transparent_62%)]">
+                <article className="group overflow-hidden rounded-xl border border-[#D4B483]/50 bg-[#061A2D] shadow-[0_30px_80px_-36px_rgba(212,180,131,0.45)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_36px_90px_-30px_rgba(212,180,131,0.55)]">
+                  <div className="relative aspect-[16/10] overflow-hidden">
                     {src ? (
                       <Image
                         src={src}
                         alt={item.alt}
                         fill
                         sizes="(max-width: 1024px) 100vw, 560px"
-                        className="object-contain p-6 transition duration-700 group-hover:scale-105"
+                        className="object-cover transition duration-700 group-hover:scale-105"
                       />
                     ) : null}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#061A2D] via-transparent to-transparent" />

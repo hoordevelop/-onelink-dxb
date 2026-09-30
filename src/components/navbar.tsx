@@ -76,7 +76,7 @@ export function Navbar({ logoSrc }: NavbarProps) {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:h-[4.5rem] sm:px-8">
+      <div className="mx-auto flex h-24 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
         <a href="#home" className="relative z-50 shrink-0 rounded-sm" onClick={() => setOpen(false)}>
           <Logo src={logoSrc} />
         </a>
@@ -151,7 +151,7 @@ export function Navbar({ logoSrc }: NavbarProps) {
             animate={reduce ? { opacity: 1 } : { opacity: [0, 1], y: [-10, 0] }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.28, ease: "easeOut" }}
-            className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-[#007BFF]/15 bg-[#020B14] sm:top-[4.5rem] lg:hidden"
+            className="fixed inset-x-0 top-24 bottom-0 z-40 overflow-y-auto border-t border-[#007BFF]/15 bg-[#020B14] lg:hidden"
           >
             <nav aria-label="Mobile" className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-5 sm:px-8">
               {navLinks.map((link, index) => (

@@ -69,7 +69,7 @@ export function Hero({ images }: HeroProps) {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#020B14] via-[#020B14]/75 to-[#020B14]/25" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#020B14] to-transparent" />
 
-      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pt-28 pb-16 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pt-32">
+      <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pt-32 pb-16 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pt-36">
         <motion.div
           className="text-center lg:text-left"
           initial={false}
@@ -149,14 +149,14 @@ export function Hero({ images }: HeroProps) {
         <div className="relative mx-auto h-[340px] w-full max-w-xl sm:h-[440px] lg:h-[520px]">
           <VehiclePlate
             src={images.car}
-            alt="Dark delivery sedan with an electric blue light line"
+            alt="Blue and gold delivery sedan"
             className="absolute top-0 right-0 w-[82%]"
             label="Car"
             delay={0.2}
           />
           <VehiclePlate
             src={images.bike}
-            alt="Delivery motorcycle with a rear cargo box"
+            alt="Blue and gold delivery scooter with a cargo box"
             className="absolute bottom-0 left-0 z-10 w-[78%]"
             label="Bike"
             delay={0.45}
@@ -192,11 +192,11 @@ function VehiclePlate({
       <motion.div
         animate={reduce ? undefined : { y: [0, -8, 0] }}
         transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay }}
-        className="overflow-hidden rounded-xl border border-[#008CFF]/45 bg-[#061A2D]/75 shadow-[0_30px_80px_-28px_rgba(0,123,255,0.75)] backdrop-blur-md"
+        className="overflow-hidden rounded-xl border border-[#D4B483]/55 bg-[#061A2D] shadow-[0_30px_80px_-28px_rgba(212,180,131,0.45)]"
       >
         <div className="relative aspect-[16/10]">
           {src ? (
-            <Image src={src} alt={alt} fill priority sizes="(max-width: 1024px) 80vw, 460px" className="object-contain p-3" />
+            <Image src={src} alt={alt} fill priority sizes="(max-width: 1024px) 80vw, 460px" className="object-cover" />
           ) : (
             <div className="grid h-full place-items-center text-xs tracking-[0.2em] text-[#9CC9FF]">{label}</div>
           )}
