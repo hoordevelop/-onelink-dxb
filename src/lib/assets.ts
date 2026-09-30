@@ -17,8 +17,8 @@ export function publicImage(filename: string): string | null {
 export function getBrandImages(): BrandImages {
   return {
     logo: publicImage("logo.png"),
-    bike: publicImage("hero-bike.png"),
-    car: publicImage("hero-car.png"),
+    bike: publicImage("delivery-bike.jpg"),
+    car: publicImage("delivery-car.jpg"),
     skyline: publicImage("dubai-skyline.png"),
   };
 }

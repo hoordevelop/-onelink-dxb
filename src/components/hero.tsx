@@ -82,9 +82,9 @@ export function Hero({ images }: HeroProps) {
             initial={false}
             variants={{ show: item }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 rounded-md border border-[#008CFF]/40 bg-[#007BFF]/10 px-3 py-1.5 text-sm text-[#E7F3FF] backdrop-blur-md"
+            className="inline-flex items-center gap-2 rounded-md border border-[#FFD100]/50 bg-black/40 px-3 py-1.5 text-sm text-white backdrop-blur-md"
           >
-            <MapPin className="size-3.5 text-[#7CC4FF]" aria-hidden="true" />
+            <MapPin className="size-3.5 text-[#FFD100]" aria-hidden="true" />
             Dubai Based
           </motion.p>
 
@@ -95,7 +95,7 @@ export function Hero({ images }: HeroProps) {
             className="font-display mt-6 text-[2.7rem] leading-[1.02] font-semibold tracking-[-0.04em] text-white sm:text-6xl lg:text-[4.5rem]"
           >
             Fast. Safe. Reliable.
-            <span className="mt-2 block bg-gradient-to-r from-white to-[#9FD0FF] bg-clip-text text-transparent">
+            <span className="mt-2 block bg-gradient-to-r from-white to-[#FFD100] bg-clip-text text-transparent">
               Delivery Across Dubai.
             </span>
           </motion.h1>
@@ -137,7 +137,7 @@ export function Hero({ images }: HeroProps) {
           >
             {trust.map((label) => (
               <li key={label} className="inline-flex items-center gap-2 text-sm text-[#E7F3FF]">
-                <span className="grid size-5 place-items-center rounded-full bg-[#007BFF]/20 text-[#7CC4FF] ring-1 ring-[#008CFF]/40">
+                <span className="grid size-5 place-items-center rounded-full bg-[#FFD100]/15 text-[#FFD100] ring-1 ring-[#FFD100]/50">
                   <Check className="size-3" aria-hidden="true" />
                 </span>
                 {label}
@@ -149,14 +149,14 @@ export function Hero({ images }: HeroProps) {
         <div className="relative mx-auto h-[340px] w-full max-w-xl sm:h-[440px] lg:h-[520px]">
           <VehiclePlate
             src={images.car}
-            alt="Blue and gold delivery sedan"
+            alt="Blue and yellow delivery car with a roof cargo box"
             className="absolute top-0 right-0 w-[82%]"
             label="Car"
             delay={0.2}
           />
           <VehiclePlate
             src={images.bike}
-            alt="Blue and gold delivery scooter with a cargo box"
+            alt="Blue and yellow delivery scooter with a cargo box"
             className="absolute bottom-0 left-0 z-10 w-[78%]"
             label="Bike"
             delay={0.45}
@@ -192,7 +192,7 @@ function VehiclePlate({
       <motion.div
         animate={reduce ? undefined : { y: [0, -8, 0] }}
         transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay }}
-        className="overflow-hidden rounded-xl border border-[#D4B483]/55 bg-[#061A2D] shadow-[0_30px_80px_-28px_rgba(212,180,131,0.45)]"
+        className="overflow-hidden rounded-xl border border-[#FFD100]/55 bg-black shadow-[0_30px_80px_-28px_rgba(255,209,0,0.35)]"
       >
         <div className="relative aspect-[16/10]">
           {src ? (

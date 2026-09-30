@@ -9,14 +9,14 @@ const fleet = [
     title: "BIKE",
     line: "Fast & Flexible",
     detail: "City runs for documents, parcels, and urgent orders.",
-    alt: "Blue and gold delivery scooter with a cargo box",
+    alt: "Blue and yellow delivery scooter with a cargo box",
   },
   {
     key: "car" as const,
     title: "CAR",
     line: "Comfortable & Secure",
     detail: "Larger, sensitive, or multi-item deliveries across Dubai.",
-    alt: "Blue and gold delivery sedan",
+    alt: "Blue and yellow delivery car with a roof cargo box",
   },
 ];
 
@@ -41,7 +41,7 @@ export function Fleet({ images }: FleetProps) {
             const src = images[item.key];
             return (
               <Reveal key={item.title} delay={index * 0.08}>
-                <article className="group overflow-hidden rounded-xl border border-[#D4B483]/50 bg-[#061A2D] shadow-[0_30px_80px_-36px_rgba(212,180,131,0.45)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_36px_90px_-30px_rgba(212,180,131,0.55)]">
+                <article className="group overflow-hidden rounded-xl border border-[#FFD100]/45 bg-[#061A2D] shadow-[0_30px_80px_-36px_rgba(255,209,0,0.28)] transition duration-300 hover:-translate-y-1 hover:border-[#FFD100]/80 hover:shadow-[0_36px_90px_-30px_rgba(255,209,0,0.4)]">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {src ? (
                       <Image
@@ -55,7 +55,7 @@ export function Fleet({ images }: FleetProps) {
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#061A2D] via-transparent to-transparent" />
                   </div>
                   <div className="border-t border-[#007BFF]/20 px-6 py-6 sm:px-8">
-                    <p className="text-xs tracking-[0.28em] text-[#7CC4FF]">FLEET</p>
+                    <p className="text-xs tracking-[0.28em] text-[#FFD100]">FLEET</p>
                     <h3 className="font-display mt-2 text-3xl font-semibold tracking-[0.14em] text-white">
                       {item.title}
                     </h3>

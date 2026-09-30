@@ -30,17 +30,17 @@ Use a light or transparent logo. The background is deep navy.
 
 ## Fleet and skyline photos
 
-The bike and car photos are already in place: navy blue, with gold wheels and trim.
+The bike and car photos are delivery vehicles: blue, black, yellow, and white.
 
 ```
-public/images/hero-bike.png
-public/images/hero-car.png
+public/images/delivery-bike.jpg
+public/images/delivery-car.jpg
 public/images/dubai-skyline.png
 ```
 
 Replace a file on the same path to swap the picture. Do not put a company logo on the vehicle art unless it is part of the official photograph.
 
-`scripts/render-images.mjs` redraws the old line illustrations and will overwrite the bike and car photos. Do not run it unless you want those drawings back.
+`scripts/render-images.mjs` redraws the old line illustrations into `hero-bike.png` and `hero-car.png`. The site uses the delivery photos above, so leave that script alone.
 
 ## Contact form
 

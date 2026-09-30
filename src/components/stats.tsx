@@ -42,7 +42,7 @@ export function Stats() {
                   index < 3 && "xl:border-r",
                 )}
               >
-                <div className="grid size-11 place-items-center rounded-full bg-[#007BFF]/12 text-[#8EC8FF] ring-1 ring-[#008CFF]/35">
+                <div className="grid size-11 place-items-center rounded-full bg-[#FFD100]/12 text-[#FFD100] ring-1 ring-[#FFD100]/40">
                   <Icon className="size-5" aria-hidden="true" />
                 </div>
                 <h3 className="font-display mt-5 text-xl font-semibold text-white">{stat.title}</h3>

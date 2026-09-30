@@ -95,7 +95,7 @@ export function Navbar({ logoSrc }: NavbarProps) {
               <span
                 className={cn(
                   "border-b pb-1",
-                  active === link.href ? "border-[#008CFF]" : "border-transparent",
+                  active === link.href ? "border-[#FFD100]" : "border-transparent",
                 )}
               >
                 {link.label}
@@ -114,7 +114,7 @@ export function Navbar({ logoSrc }: NavbarProps) {
 
         <button
           type="button"
-          className="relative z-50 size-11 rounded-md border border-[#008CFF]/30 text-white lg:hidden"
+          className="relative z-50 size-11 rounded-md border border-[#FFD100]/40 text-white lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}

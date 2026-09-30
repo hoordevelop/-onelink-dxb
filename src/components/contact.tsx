@@ -13,7 +13,7 @@ export function Contact() {
       <div className="pointer-events-none absolute -top-20 right-0 size-[420px] rounded-full bg-[#007BFF]/20 blur-3xl" />
       <div className="relative mx-auto grid max-w-6xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <p className="text-xs font-medium tracking-[0.24em] text-[#7CC4FF] uppercase">Contact</p>
+          <p className="text-xs font-medium tracking-[0.24em] text-[#FFD100] uppercase">Contact</p>
           <h2 className="font-display mt-3 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl lg:text-5xl">
             Ready to Move With OneLink?
           </h2>

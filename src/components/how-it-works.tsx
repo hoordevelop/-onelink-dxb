@@ -44,7 +44,7 @@ export function HowItWorks() {
         <div className="relative mt-16">
           <div className="absolute top-7 right-[10%] left-[10%] hidden h-px overflow-hidden bg-[#007BFF]/20 md:block" aria-hidden="true">
             <motion.div
-              className="h-full origin-left bg-gradient-to-r from-[#007BFF] via-[#008CFF] to-[#9FD0FF]"
+              className="h-full origin-left bg-gradient-to-r from-[#007BFF] via-[#FFD100] to-white"
               initial={false}
               whileInView={reduce ? undefined : { scaleX: [0, 1] }}
               viewport={{ once: true, margin: "-80px" }}
@@ -63,7 +63,7 @@ export function HowItWorks() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: reduce ? 0 : index * 0.1 }}
               >
-                <span className="absolute top-0 left-0 grid size-14 place-items-center rounded-full border border-[#008CFF]/50 bg-[#020B14] font-display text-sm font-semibold tracking-[0.14em] text-[#9FD0FF] shadow-[0_0_24px_rgba(0,140,255,0.28)] md:relative md:mx-auto">
+                <span className="absolute top-0 left-0 grid size-14 place-items-center rounded-full border border-[#FFD100]/70 bg-black font-display text-sm font-semibold tracking-[0.14em] text-[#FFD100] shadow-[0_0_24px_rgba(255,209,0,0.22)] md:relative md:mx-auto">
                   {step.number}
                 </span>
                 <h3 className="font-display mt-4 text-lg font-semibold text-white md:mt-6">{step.title}</h3>
