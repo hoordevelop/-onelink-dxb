@@ -67,11 +67,12 @@ export function Navbar({ logoSrc }: NavbarProps) {
   };
 
   return (
+    <>
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled || open
-          ? "border-b border-[#007BFF]/25 bg-[#020B14]/80 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+          ? "border-b border-[#007BFF]/25 bg-[#020B14]/95 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
       )}
     >
@@ -140,16 +141,17 @@ export function Navbar({ logoSrc }: NavbarProps) {
           />
         </button>
       </div>
+    </header>
 
       <AnimatePresence>
         {open ? (
           <motion.div
             id="mobile-nav"
-            initial={reduce ? false : { height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={reduce ? undefined : { height: 0, opacity: 0 }}
+            initial={false}
+            animate={reduce ? { opacity: 1 } : { opacity: [0, 1], y: [-10, 0] }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.28, ease: "easeOut" }}
-            className="overflow-hidden border-t border-[#007BFF]/15 bg-[#020B14]/95 backdrop-blur-xl lg:hidden"
+            className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-[#007BFF]/15 bg-[#020B14] sm:top-[4.5rem] lg:hidden"
           >
             <nav aria-label="Mobile" className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-5 sm:px-8">
               {navLinks.map((link, index) => (
@@ -157,8 +159,8 @@ export function Navbar({ logoSrc }: NavbarProps) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  initial={reduce ? false : { opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={false}
+                  animate={reduce ? undefined : { opacity: [0, 1], x: [-12, 0] }}
                   transition={{ delay: reduce ? 0 : 0.04 * index }}
                   className="rounded-md px-2 py-3 text-lg text-white hover:bg-[#007BFF]/10"
                 >
@@ -179,6 +181,6 @@ export function Navbar({ logoSrc }: NavbarProps) {
           </motion.div>
         ) : null}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

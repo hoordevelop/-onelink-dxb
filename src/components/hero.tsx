@@ -26,14 +26,12 @@ type HeroProps = {
 export function Hero({ images }: HeroProps) {
   const reduce = useReducedMotion();
 
-  const item = {
-    hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: reduce ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] as const },
-    },
-  };
+  const item = reduce
+    ? undefined
+    : {
+        opacity: [0, 1],
+        y: [22, 0],
+      };
 
   return (
     <section id="home" className="relative isolate min-h-[100svh] overflow-hidden">
@@ -74,15 +72,16 @@ export function Hero({ images }: HeroProps) {
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pt-28 pb-16 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pt-32">
         <motion.div
           className="text-center lg:text-left"
-          initial="hidden"
-          animate="show"
+          initial={false}
+          animate={reduce ? undefined : "show"}
           variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: reduce ? 0 : 0.1 } },
+            show: { transition: { staggerChildren: 0.1 } },
           }}
         >
           <motion.p
-            variants={item}
+            initial={false}
+            variants={{ show: item }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="inline-flex items-center gap-2 rounded-md border border-[#008CFF]/40 bg-[#007BFF]/10 px-3 py-1.5 text-sm text-[#E7F3FF] backdrop-blur-md"
           >
             <MapPin className="size-3.5 text-[#7CC4FF]" aria-hidden="true" />
@@ -90,7 +89,9 @@ export function Hero({ images }: HeroProps) {
           </motion.p>
 
           <motion.h1
-            variants={item}
+            initial={false}
+            variants={{ show: item }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="font-display mt-6 text-[2.7rem] leading-[1.02] font-semibold tracking-[-0.04em] text-white sm:text-6xl lg:text-[4.5rem]"
           >
             Fast. Safe. Reliable.
@@ -100,14 +101,18 @@ export function Hero({ images }: HeroProps) {
           </motion.h1>
 
           <motion.p
-            variants={item}
+            initial={false}
+            variants={{ show: item }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[#D5E4F0] sm:text-lg lg:mx-0"
           >
             Professional bike and car delivery solutions built for businesses and customers across Dubai.
           </motion.p>
 
           <motion.div
-            variants={item}
+            initial={false}
+            variants={{ show: item }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start"
           >
             <a
@@ -124,7 +129,12 @@ export function Hero({ images }: HeroProps) {
             </a>
           </motion.div>
 
-          <motion.ul variants={item} className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
+          <motion.ul
+            initial={false}
+            variants={{ show: item }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start"
+          >
             {trust.map((label) => (
               <li key={label} className="inline-flex items-center gap-2 text-sm text-[#E7F3FF]">
                 <span className="grid size-5 place-items-center rounded-full bg-[#007BFF]/20 text-[#7CC4FF] ring-1 ring-[#008CFF]/40">
@@ -175,8 +185,8 @@ function VehiclePlate({
   return (
     <motion.div
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={false}
+      animate={reduce ? undefined : { opacity: [0, 1], y: [24, 0] }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       <motion.div

@@ -40,11 +40,10 @@ export function WhyChooseUs() {
 
         <motion.div
           className="mt-14 grid gap-5 md:grid-cols-2"
-          initial="hidden"
+          initial={false}
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={{
-            hidden: {},
             show: { transition: { staggerChildren: reduce ? 0 : 0.08 } },
           }}
         >
@@ -53,9 +52,11 @@ export function WhyChooseUs() {
             return (
               <motion.article
                 key={reason.title}
+                initial={false}
                 variants={{
-                  hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.55 } },
+                  show: reduce
+                    ? { opacity: 1, y: 0 }
+                    : { opacity: [0, 1], y: [18, 0], transition: { duration: 0.55 } },
                 }}
                 className="glow-card flex gap-5 rounded-xl border border-[#007BFF]/25 bg-[#061A2D]/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#008CFF]/60 hover:shadow-[0_24px_50px_-30px_rgba(0,140,255,0.8)]"
               >

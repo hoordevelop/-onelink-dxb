@@ -45,8 +45,8 @@ export function HowItWorks() {
           <div className="absolute top-7 right-[10%] left-[10%] hidden h-px overflow-hidden bg-[#007BFF]/20 md:block" aria-hidden="true">
             <motion.div
               className="h-full origin-left bg-gradient-to-r from-[#007BFF] via-[#008CFF] to-[#9FD0FF]"
-              initial={reduce ? { scaleX: 1 } : { scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
+              initial={false}
+              whileInView={reduce ? undefined : { scaleX: [0, 1] }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: reduce ? 0 : 1.2, ease: "easeOut" }}
             />
@@ -58,8 +58,8 @@ export function HowItWorks() {
               <motion.li
                 key={step.number}
                 className="relative pl-16 md:pl-0 md:text-center"
-                initial={reduce ? false : { opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={false}
+                whileInView={reduce ? undefined : { opacity: [0, 1], y: [16, 0] }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: reduce ? 0 : index * 0.1 }}
               >

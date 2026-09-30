@@ -45,20 +45,21 @@ export function Services() {
 
         <motion.div
           className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4"
-          initial="hidden"
+          initial={false}
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={{
-            hidden: {},
             show: { transition: { staggerChildren: reduce ? 0 : 0.08 } },
           }}
         >
           {services.map((service) => (
             <motion.div
               key={service.title}
+              initial={false}
               variants={{
-                hidden: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.55 } },
+                show: reduce
+                  ? { opacity: 1, y: 0 }
+                  : { opacity: [0, 1], y: [20, 0], transition: { duration: 0.55 } },
               }}
             >
               <ServiceCard {...service} />

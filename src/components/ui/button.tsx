@@ -19,7 +19,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         glow: "border-[#008CFF]/40 bg-[#0066E6] text-white shadow-[0_0_0_1px_rgba(0,140,255,0.35),0_10px_30px_-8px_rgba(0,123,255,0.75)] hover:bg-[#007BFF] hover:shadow-[0_0_0_1px_rgba(140,200,255,0.7),0_14px_40px_-8px_rgba(0,140,255,0.9)]",
         glass:
-          "border-[#008CFF]/45 bg-white/[0.04] text-white backdrop-blur-md hover:border-[#008CFF] hover:bg-[#007BFF]/15",
+          "border-[#8EC8FF]/70 bg-[#0C3358] text-white shadow-[inset_0_0_0_1px_rgba(158,210,255,0.15)] hover:border-[#D7EEFF] hover:bg-[#12406C]",
         whatsapp:
           "border-transparent bg-[#128C7E] text-white shadow-[0_10px_28px_-12px_rgba(18,140,126,0.9)] hover:bg-[#17A589]",
       },
