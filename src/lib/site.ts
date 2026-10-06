@@ -5,8 +5,7 @@ export const site = {
   phoneDisplay: "0562692878",
   phoneTel: "+971562692878",
   whatsapp: "https://wa.me/971562692878",
-  email: "Onlinkdeliveryservices@gmail.com",
-  emailSecondary: "info@onlinkservices.delivery",
+  email: "info@onelinkdeliveryservices.com",
   tagline: "Fast • Safe • Reliable",
 } as const;
 

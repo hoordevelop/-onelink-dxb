@@ -77,7 +77,7 @@ export function submitDeliveryRequest(data: DeliveryRequest): DeliverySubmitResu
     data.message.trim() || "(none)",
   ].join("\n");
 
-  const href = `mailto:${site.email}?cc=${encodeURIComponent(site.emailSecondary)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   return { channel: "mailto", href };
 }

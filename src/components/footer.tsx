@@ -44,11 +44,6 @@ export function Footer({ logoSrc }: FooterProps) {
                 {site.email}
               </a>
             </p>
-            <p>
-              <a className="break-all hover:text-white" href={`mailto:${site.emailSecondary}`}>
-                {site.emailSecondary}
-              </a>
-            </p>
           </address>
           <div className="mt-5 flex gap-3">
             <a

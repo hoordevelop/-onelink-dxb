@@ -46,7 +46,7 @@ Replace a file on the same path to swap the picture. Do not put a company logo o
 
 ## Contact form
 
-The request form validates in the browser, then opens the visitor’s email app with a message addressed to `Onlinkdeliveryservices@gmail.com` and copied to `info@onlinkservices.delivery`. It does not send email by itself.
+The request form validates in the browser, then opens the visitor’s email app with a message addressed to `info@onelinkdeliveryservices.com`. It does not send email by itself.
 
 When a backend or email API is ready, replace `submitDeliveryRequest` in `src/lib/delivery-request.ts`. Keep the success message honest until that call actually delivers the request.
 
@@ -55,5 +55,4 @@ When a backend or email API is ready, replace `submitDeliveryRequest` in `src/li
 - Dubai, UAE
 - Phone: 0562692878
 - WhatsApp: https://wa.me/971562692878
-- Onlinkdeliveryservices@gmail.com
-- info@onlinkservices.delivery
+- info@onelinkdeliveryservices.com

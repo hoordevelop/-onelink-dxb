@@ -54,11 +54,6 @@ export function Contact() {
                 {site.email}
               </a>
             </p>
-            <p>
-              <a className="break-all text-white underline-offset-4 hover:underline" href={`mailto:${site.emailSecondary}`}>
-                {site.emailSecondary}
-              </a>
-            </p>
             <p>{site.location}</p>
           </address>
         </Reveal>
