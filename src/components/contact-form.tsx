@@ -1,200 +1,75 @@
 "use client";
 
-import { useState, type FormEvent, type ReactNode } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  submitDeliveryRequest,
-  validateDeliveryRequest,
-  type DeliveryField,
-  type DeliveryRequest,
-} from "@/lib/delivery-request";
-import { deliveryTypes, site } from "@/lib/site";
-
-const emptyForm: DeliveryRequest = {
-  fullName: "",
-  phone: "",
-  email: "",
-  deliveryType: "",
-  pickup: "",
-  dropoff: "",
-  message: "",
-};
-
-const fields: { name: DeliveryField; label: string; autoComplete?: string; type?: string }[] = [
-  { name: "fullName", label: "Full Name", autoComplete: "name" },
-  { name: "phone", label: "Phone Number", autoComplete: "tel", type: "tel" },
-  { name: "email", label: "Email", autoComplete: "email", type: "email" },
-];
+import { useState, type FormEvent } from "react";
+import { site } from "@/lib/site";
 
 export function ContactForm() {
-  const [form, setForm] = useState<DeliveryRequest>(emptyForm);
-  const [errors, setErrors] = useState<Partial<Record<DeliveryField, string>>>({});
-  const [draftReady, setDraftReady] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; message?: string }>({});
+  const [status, setStatus] = useState("");
 
-  const setField = (name: DeliveryField, value: string) => {
-    setForm((current) => ({ ...current, [name]: value }));
-    setErrors((current) => ({ ...current, [name]: undefined }));
-  };
-
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  function onSubmit(event: FormEvent) {
     event.preventDefault();
-    const nextErrors = validateDeliveryRequest(form);
-    setErrors(nextErrors);
-    if (Object.keys(nextErrors).length > 0) {
-      setDraftReady(false);
-      const first = Object.keys(nextErrors)[0];
-      document.getElementById(first === "deliveryType" ? "delivery-type" : fieldId(first as DeliveryField))?.focus();
+    const next: typeof errors = {};
+    if (name.trim().length < 2) next.name = "Enter your name.";
+    if (phone.replace(/\D/g, "").length < 7) next.phone = "Enter a phone number.";
+    if (message.trim().length < 4) next.message = "Tell the desk what you need.";
+    setErrors(next);
+    if (Object.keys(next).length > 0) {
+      setStatus("");
       return;
     }
 
-    const result = submitDeliveryRequest(form);
-    setDraftReady(true);
-    window.location.href = result.href;
-  };
+    const body = [`Name: ${name.trim()}`, `Phone: ${phone.trim()}`, "", message.trim()].join("\n");
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent("OneLink enquiry")}&body=${encodeURIComponent(body)}`;
+    setStatus("Your email app should open with this enquiry. If it does not, call " + site.phoneDisplay + ".");
+  }
 
   return (
-    <form id="quote" onSubmit={onSubmit} noValidate className="scroll-mt-28 rounded-2xl border border-[#C6A15B]/40 bg-white p-5 shadow-[0_30px_80px_-40px_rgba(11,99,229,0.35)] sm:p-7">
-      <h3 className="font-display text-2xl font-semibold text-[#16181D]">Request a Delivery</h3>
-      <p className="mt-2 text-sm leading-relaxed text-[#3A4150]">
-        Tell us the route. We open this in your email app addressed to {site.email}. It is only sent when you send that email.
-      </p>
-
-      <div className="mt-6 grid gap-4">
-        {fields.map((field) => (
-          <Field
-            key={field.name}
-            id={fieldId(field.name)}
-            label={field.label}
-            error={errors[field.name]}
-          >
-            <Input
-              id={fieldId(field.name)}
-              name={field.name}
-              type={field.type ?? "text"}
-              autoComplete={field.autoComplete}
-              value={form[field.name]}
-              aria-invalid={Boolean(errors[field.name])}
-              aria-describedby={errors[field.name] ? `${fieldId(field.name)}-error` : undefined}
-              onChange={(event) => setField(field.name, event.target.value)}
-              className="border-[#C6A15B]/40 bg-white text-[#16181D]"
-            />
-          </Field>
-        ))}
-
-        <Field id="delivery-type" label="Delivery Type" error={errors.deliveryType}>
-          <Select
-            value={form.deliveryType || null}
-            onValueChange={(value) => setField("deliveryType", value ?? "")}
-          >
-            <SelectTrigger
-              id="delivery-type"
-              aria-invalid={Boolean(errors.deliveryType)}
-              aria-describedby={errors.deliveryType ? "delivery-type-error" : undefined}
-              className="border-[#C6A15B]/40 bg-white text-[#16181D]"
-            >
-              <SelectValue placeholder="Select a delivery type" />
-            </SelectTrigger>
-            <SelectContent>
-              {deliveryTypes.map((type) => (
-                <SelectItem key={type} value={type}>
-                  {type}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </Field>
-
-        <Field id="pickup" label="Pickup Location" error={errors.pickup}>
-          <Input
-            id="pickup"
-            name="pickup"
-            autoComplete="off"
-            value={form.pickup}
-            aria-invalid={Boolean(errors.pickup)}
-            aria-describedby={errors.pickup ? "pickup-error" : undefined}
-            onChange={(event) => setField("pickup", event.target.value)}
-            className="border-[#C6A15B]/40 bg-white text-[#16181D]"
-          />
-        </Field>
-
-        <Field id="dropoff" label="Drop-off Location" error={errors.dropoff}>
-          <Input
-            id="dropoff"
-            name="dropoff"
-            autoComplete="off"
-            value={form.dropoff}
-            aria-invalid={Boolean(errors.dropoff)}
-            aria-describedby={errors.dropoff ? "dropoff-error" : undefined}
-            onChange={(event) => setField("dropoff", event.target.value)}
-            className="border-[#C6A15B]/40 bg-white text-[#16181D]"
-          />
-        </Field>
-
-        <Field id="message" label="Message" error={errors.message}>
-          <Textarea
-            id="message"
-            name="message"
-            value={form.message}
-            aria-invalid={Boolean(errors.message)}
-            aria-describedby={errors.message ? "message-error" : undefined}
-            onChange={(event) => setField("message", event.target.value)}
-            className="border-[#C6A15B]/40 bg-white text-[#16181D]"
-          />
-        </Field>
-      </div>
-
-      <Button type="submit" variant="glow" size="xl" className="mt-6 w-full">
-        {draftReady ? "Open email draft again" : "Request a Delivery"}
-      </Button>
-
-      {draftReady ? (
-        <p role="status" className="mt-4 text-sm leading-relaxed text-[#0B63E5]">
-          Your email app should open with this request. Nothing reaches OneLink until you send that email. For an immediate booking, call {site.phoneDisplay} or WhatsApp us.
-        </p>
-      ) : (
-        <p className="mt-4 text-sm leading-relaxed text-[#5C6570]">
-          This form does not send email by itself yet. It prepares a message you can send from your own email app.
-        </p>
-      )}
-    </form>
-  );
-}
-
-function fieldId(name: DeliveryField) {
-  if (name === "fullName") return "full-name";
-  return name;
-}
-
-function Field({
-  id,
-  label,
-  error,
-  children,
-}: {
-  id: string;
-  label: string;
-  error?: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className="grid gap-2">
-      <Label htmlFor={id}>{label}</Label>
-      {children}
-      {error ? (
-        <p id={`${id}-error`} role="alert" className="text-sm text-[#B42318]">
-          {error}
+    <form onSubmit={onSubmit} className="grid gap-4" noValidate>
+      <label className="block">
+        <span className="mb-2 block text-sm text-[#5C6570]">Name</span>
+        <input
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          className="h-12 w-full rounded-xl bg-[#F3F5F7] px-3 text-sm outline-none ring-[#2F6FED] focus:ring-2"
+        />
+        {errors.name ? <span className="mt-1 block text-xs text-[#B42318]">{errors.name}</span> : null}
+      </label>
+      <label className="block">
+        <span className="mb-2 block text-sm text-[#5C6570]">Phone</span>
+        <input
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
+          className="h-12 w-full rounded-xl bg-[#F3F5F7] px-3 text-sm outline-none ring-[#2F6FED] focus:ring-2"
+          placeholder="05x xxx xxxx"
+        />
+        {errors.phone ? <span className="mt-1 block text-xs text-[#B42318]">{errors.phone}</span> : null}
+      </label>
+      <label className="block">
+        <span className="mb-2 block text-sm text-[#5C6570]">Message</span>
+        <textarea
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+          className="min-h-28 w-full rounded-xl bg-[#F3F5F7] px-3 py-3 text-sm outline-none ring-[#2F6FED] focus:ring-2"
+        />
+        {errors.message ? (
+          <span className="mt-1 block text-xs text-[#B42318]">{errors.message}</span>
+        ) : null}
+      </label>
+      <button
+        type="submit"
+        className="rounded-full bg-[#2F6FED] px-5 py-2.5 text-sm font-semibold text-white"
+      >
+        Send enquiry
+      </button>
+      {status ? (
+        <p className="text-sm leading-6 text-[#1B4E86]" role="status">
+          {status}
         </p>
       ) : null}
-    </div>
+    </form>
   );
 }

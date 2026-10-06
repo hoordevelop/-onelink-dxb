@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { WhatsAppButton } from "@/components/whatsapp-button";
+import { getBrandImages } from "@/lib/assets";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -16,9 +20,9 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const title = "OneLink Delivery Service | Fast & Reliable Delivery in Dubai";
+const title = "OneLink Delivery | The gold standard, door to door";
 const description =
-  "OneLink Delivery Service provides fast, safe and reliable bike and car delivery solutions across Dubai.";
+  "ONELINK DELIVERY L.L.C-FZ. Bikes and cars from Meydan, Dubai, booked and tracked to the door.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -60,9 +64,11 @@ const structuredData = {
   areaServed: "Dubai",
   address: {
     "@type": "PostalAddress",
+    streetAddress: site.address.join(", "),
     addressLocality: "Dubai",
     addressCountry: "AE",
   },
+  openingHours: "Mo-Sa 09:00-18:00",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -72,7 +78,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <SiteHeader logoSrc={getBrandImages().logo} />
         {children}
+        <SiteFooter logoSrc={getBrandImages().logo} />
+        <WhatsAppButton />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

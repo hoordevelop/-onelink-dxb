@@ -1,34 +1,24 @@
-import { About } from "@/components/about";
-import { Contact } from "@/components/contact";
-import { Fleet } from "@/components/fleet";
-import { Footer } from "@/components/footer";
-import { Hero } from "@/components/hero";
-import { HowItWorks } from "@/components/how-it-works";
-import { Navbar } from "@/components/navbar";
-import { Services } from "@/components/services";
-import { Stats } from "@/components/stats";
-import { WhatsAppButton } from "@/components/whatsapp-button";
-import { WhyChooseUs } from "@/components/why-choose-us";
+import type { Metadata } from "next";
+import { HomePageView } from "@/components/home-page";
 import { getBrandImages } from "@/lib/assets";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "OneLink Delivery | The gold standard, door to door",
+  description:
+    "ONELINK DELIVERY L.L.C-FZ. Bikes and cars from Meydan, booked and tracked to the door.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "OneLink Delivery | The gold standard, door to door",
+    description: site.tagline,
+    url: site.url,
+  },
+};
 
 export default function HomePage() {
-  const images = getBrandImages();
-
   return (
-    <>
-      <Navbar logoSrc={images.logo} />
-      <main id="main">
-        <Hero images={images} />
-        <Services />
-        <Stats />
-        <About images={images} />
-        <WhyChooseUs />
-        <Fleet images={images} />
-        <HowItWorks />
-        <Contact />
-      </main>
-      <Footer logoSrc={images.logo} />
-      <WhatsAppButton />
-    </>
+    <main id="main">
+      <HomePageView images={getBrandImages()} />
+    </main>
   );
 }
