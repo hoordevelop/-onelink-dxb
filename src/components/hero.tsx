@@ -26,12 +26,10 @@ type HeroProps = {
 export function Hero({ images }: HeroProps) {
   const reduce = useReducedMotion();
 
-  const item = reduce
-    ? undefined
-    : {
-        opacity: [0, 1],
-        y: [22, 0],
-      };
+  const item = {
+    opacity: [0, 1],
+    y: [22, 0],
+  };
 
   return (
     <section id="home" className="relative isolate min-h-[100svh] overflow-hidden">
