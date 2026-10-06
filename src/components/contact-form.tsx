@@ -63,9 +63,9 @@ export function ContactForm() {
   };
 
   return (
-    <form id="quote" onSubmit={onSubmit} noValidate className="scroll-mt-28 rounded-xl border border-[#008CFF]/35 bg-[#061A2D]/80 p-5 shadow-[0_30px_80px_-40px_rgba(0,123,255,0.9)] backdrop-blur-md sm:p-7">
-      <h3 className="font-display text-2xl font-semibold text-white">Request a Delivery</h3>
-      <p className="mt-2 text-sm leading-relaxed text-[#C5D7E6]">
+    <form id="quote" onSubmit={onSubmit} noValidate className="scroll-mt-28 rounded-2xl border border-[#C6A15B]/40 bg-white p-5 shadow-[0_30px_80px_-40px_rgba(11,99,229,0.35)] sm:p-7">
+      <h3 className="font-display text-2xl font-semibold text-[#16181D]">Request a Delivery</h3>
+      <p className="mt-2 text-sm leading-relaxed text-[#3A4150]">
         Tell us the route. We open this in your email app addressed to {site.email}. It is only sent when you send that email.
       </p>
 
@@ -86,7 +86,7 @@ export function ContactForm() {
               aria-invalid={Boolean(errors[field.name])}
               aria-describedby={errors[field.name] ? `${fieldId(field.name)}-error` : undefined}
               onChange={(event) => setField(field.name, event.target.value)}
-              className="bg-[#020B14]/70"
+              className="border-[#C6A15B]/40 bg-white text-[#16181D]"
             />
           </Field>
         ))}
@@ -100,7 +100,7 @@ export function ContactForm() {
               id="delivery-type"
               aria-invalid={Boolean(errors.deliveryType)}
               aria-describedby={errors.deliveryType ? "delivery-type-error" : undefined}
-              className="bg-[#020B14]/70"
+              className="border-[#C6A15B]/40 bg-white text-[#16181D]"
             >
               <SelectValue placeholder="Select a delivery type" />
             </SelectTrigger>
@@ -123,7 +123,7 @@ export function ContactForm() {
             aria-invalid={Boolean(errors.pickup)}
             aria-describedby={errors.pickup ? "pickup-error" : undefined}
             onChange={(event) => setField("pickup", event.target.value)}
-            className="bg-[#020B14]/70"
+            className="border-[#C6A15B]/40 bg-white text-[#16181D]"
           />
         </Field>
 
@@ -136,7 +136,7 @@ export function ContactForm() {
             aria-invalid={Boolean(errors.dropoff)}
             aria-describedby={errors.dropoff ? "dropoff-error" : undefined}
             onChange={(event) => setField("dropoff", event.target.value)}
-            className="bg-[#020B14]/70"
+            className="border-[#C6A15B]/40 bg-white text-[#16181D]"
           />
         </Field>
 
@@ -148,7 +148,7 @@ export function ContactForm() {
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
             onChange={(event) => setField("message", event.target.value)}
-            className="bg-[#020B14]/70"
+            className="border-[#C6A15B]/40 bg-white text-[#16181D]"
           />
         </Field>
       </div>
@@ -158,11 +158,11 @@ export function ContactForm() {
       </Button>
 
       {draftReady ? (
-        <p role="status" className="mt-4 text-sm leading-relaxed text-[#D6EBFF]">
+        <p role="status" className="mt-4 text-sm leading-relaxed text-[#0B63E5]">
           Your email app should open with this request. Nothing reaches OneLink until you send that email. For an immediate booking, call {site.phoneDisplay} or WhatsApp us.
         </p>
       ) : (
-        <p className="mt-4 text-sm leading-relaxed text-[#9BB3C7]">
+        <p className="mt-4 text-sm leading-relaxed text-[#5C6570]">
           This form does not send email by itself yet. It prepares a message you can send from your own email app.
         </p>
       )}
@@ -191,7 +191,7 @@ function Field({
       <Label htmlFor={id}>{label}</Label>
       {children}
       {error ? (
-        <p id={`${id}-error`} role="alert" className="text-sm text-[#FFB4B4]">
+        <p id={`${id}-error`} role="alert" className="text-sm text-[#B42318]">
           {error}
         </p>
       ) : null}

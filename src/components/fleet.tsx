@@ -9,14 +9,14 @@ const fleet = [
     title: "BIKE",
     line: "Fast & Flexible",
     detail: "City runs for documents, parcels, and urgent orders.",
-    alt: "Blue and yellow delivery scooter with a cargo box",
+    alt: "Black and gold OneLink delivery motorcycle with a cargo box",
   },
   {
     key: "car" as const,
     title: "CAR",
     line: "Comfortable & Secure",
     detail: "Larger, sensitive, or multi-item deliveries across Dubai.",
-    alt: "Blue and yellow delivery car with a roof cargo box",
+    alt: "Black and gold OneLink delivery cars in Dubai",
   },
 ];
 
@@ -26,7 +26,7 @@ type FleetProps = {
 
 export function Fleet({ images }: FleetProps) {
   return (
-    <section id="fleet" className="scroll-mt-24 bg-[#020B14] py-24 sm:py-28">
+    <section id="fleet" className="scroll-mt-24 bg-[#F7F8FB] py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
           <SectionHeading
@@ -41,7 +41,7 @@ export function Fleet({ images }: FleetProps) {
             const src = images[item.key];
             return (
               <Reveal key={item.title} delay={index * 0.08}>
-                <article className="group overflow-hidden rounded-xl border border-[#FFD100]/45 bg-[#061A2D] shadow-[0_30px_80px_-36px_rgba(255,209,0,0.28)] transition duration-300 hover:-translate-y-1 hover:border-[#FFD100]/80 hover:shadow-[0_36px_90px_-30px_rgba(255,209,0,0.4)]">
+                <article className="group overflow-hidden rounded-2xl border border-[#C6A15B]/40 bg-white shadow-[0_30px_80px_-36px_rgba(184,137,58,0.35)] transition duration-300 hover:-translate-y-1 hover:border-[#0B63E5]/40">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {src ? (
                       <Image
@@ -52,15 +52,15 @@ export function Fleet({ images }: FleetProps) {
                         className="object-cover transition duration-700 group-hover:scale-105"
                       />
                     ) : null}
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#061A2D] via-transparent to-transparent" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
                   </div>
-                  <div className="border-t border-[#007BFF]/20 px-6 py-6 sm:px-8">
-                    <p className="text-xs tracking-[0.28em] text-[#FFD100]">FLEET</p>
-                    <h3 className="font-display mt-2 text-3xl font-semibold tracking-[0.14em] text-white">
+                  <div className="border-t border-[#C6A15B]/25 px-6 py-6 sm:px-8">
+                    <p className="text-xs tracking-[0.28em] text-[#B8893A]">FLEET</p>
+                    <h3 className="font-display mt-2 text-3xl font-semibold tracking-[0.14em] text-[#16181D]">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-lg text-[#E7F3FF]">{item.line}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-[#C5D7E6]">{item.detail}</p>
+                    <p className="mt-2 text-lg text-[#0B63E5]">{item.line}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-[#3A4150]">{item.detail}</p>
                   </div>
                 </article>
               </Reveal>

@@ -30,10 +30,10 @@ export function Logo({ src, className, imageClassName }: LogoProps) {
 
   return (
     <span className={cn("flex flex-col leading-none", className)}>
-      <span className="font-display text-[15px] font-semibold tracking-[0.22em] text-white">
+      <span className="font-display text-[15px] font-semibold tracking-[0.22em] text-[#16181D]">
         ONELINK
       </span>
-      <span className="mt-1 text-[10px] tracking-[0.26em] text-[#9CC9FF]">
+      <span className="mt-1 text-[10px] tracking-[0.26em] text-[#0B63E5]">
         DELIVERY SERVICE
       </span>
     </span>

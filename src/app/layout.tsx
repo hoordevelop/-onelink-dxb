@@ -68,7 +68,7 @@ const structuredData = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable} h-full antialiased`}>
-      <body className="site-scrollbar min-h-full bg-[#020B14] text-[#EAF2F8]">
+      <body className="site-scrollbar min-h-full bg-white text-[#16181D]">
         <a href="#main" className="skip-link">
           Skip to content
         </a>

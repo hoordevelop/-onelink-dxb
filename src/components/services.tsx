@@ -33,7 +33,7 @@ export function Services() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="services" className="scroll-mt-24 border-t border-[#007BFF]/15 bg-[#041221] py-24 sm:py-28">
+    <section id="services" className="scroll-mt-24 border-t border-[#C6A15B]/25 bg-[#F7F8FB] py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
           <SectionHeading

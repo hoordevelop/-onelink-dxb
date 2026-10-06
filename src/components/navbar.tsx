@@ -72,8 +72,8 @@ export function Navbar({ logoSrc }: NavbarProps) {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled || open
-          ? "border-b border-[#007BFF]/25 bg-[#020B14]/95 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent",
+          ? "border-b border-[#C6A15B]/30 bg-white/95 shadow-[0_12px_40px_rgba(22,24,29,0.08)] backdrop-blur-xl"
+          : "border-b border-[#C6A15B]/20 bg-white/80 backdrop-blur-md",
       )}
     >
       <div className="mx-auto flex h-24 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
@@ -88,14 +88,14 @@ export function Navbar({ logoSrc }: NavbarProps) {
               href={link.href}
               aria-current={active === link.href ? "true" : undefined}
               className={cn(
-                "text-sm tracking-wide text-[#D5E4F0] transition-colors hover:text-white",
-                active === link.href && "text-white",
+                "text-sm tracking-wide text-[#3A4150] transition-colors hover:text-[#0B63E5]",
+                active === link.href && "text-[#16181D]",
               )}
             >
               <span
                 className={cn(
                   "border-b pb-1",
-                  active === link.href ? "border-[#FFD100]" : "border-transparent",
+                  active === link.href ? "border-[#C6A15B]" : "border-transparent",
                 )}
               >
                 {link.label}
@@ -114,7 +114,7 @@ export function Navbar({ logoSrc }: NavbarProps) {
 
         <button
           type="button"
-          className="relative z-50 size-11 rounded-md border border-[#FFD100]/40 text-white lg:hidden"
+          className="relative z-50 size-11 rounded-md border border-[#C6A15B] text-[#16181D] lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -123,19 +123,19 @@ export function Navbar({ logoSrc }: NavbarProps) {
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           <span
             className={cn(
-              "absolute left-3 h-px w-5 bg-white transition duration-300",
+              "absolute left-3 h-px w-5 bg-[#16181D] transition duration-300",
               open ? "top-5 rotate-45" : "top-3.5",
             )}
           />
           <span
             className={cn(
-              "absolute top-5 left-3 h-px w-5 bg-white transition duration-300",
+              "absolute top-5 left-3 h-px w-5 bg-[#16181D] transition duration-300",
               open && "opacity-0",
             )}
           />
           <span
             className={cn(
-              "absolute left-3 h-px w-5 bg-white transition duration-300",
+              "absolute left-3 h-px w-5 bg-[#16181D] transition duration-300",
               open ? "top-5 -rotate-45" : "top-[26px]",
             )}
           />
@@ -151,7 +151,7 @@ export function Navbar({ logoSrc }: NavbarProps) {
             animate={reduce ? { opacity: 1 } : { opacity: [0, 1], y: [-10, 0] }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.28, ease: "easeOut" }}
-            className="fixed inset-x-0 top-24 bottom-0 z-40 overflow-y-auto border-t border-[#007BFF]/15 bg-[#020B14] lg:hidden"
+            className="fixed inset-x-0 top-24 bottom-0 z-40 overflow-y-auto border-t border-[#C6A15B]/30 bg-white lg:hidden"
           >
             <nav aria-label="Mobile" className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-5 sm:px-8">
               {navLinks.map((link, index) => (
@@ -162,7 +162,7 @@ export function Navbar({ logoSrc }: NavbarProps) {
                   initial={false}
                   animate={reduce ? undefined : { opacity: [0, 1], x: [-12, 0] }}
                   transition={{ delay: reduce ? 0 : 0.04 * index }}
-                  className="rounded-md px-2 py-3 text-lg text-white hover:bg-[#007BFF]/10"
+                  className="rounded-md px-2 py-3 text-lg text-[#16181D] hover:bg-[#F4F7FB]"
                 >
                   {link.label}
                 </motion.a>

@@ -27,7 +27,7 @@ const stats = [
 
 export function Stats() {
   return (
-    <section aria-label="How OneLink works with clients" className="border-y border-[#007BFF]/20 bg-[#020B14]">
+    <section aria-label="How OneLink works with clients" className="border-y border-[#C6A15B]/25 bg-white">
       <div className="mx-auto grid max-w-6xl sm:grid-cols-2 xl:grid-cols-4">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
@@ -35,18 +35,18 @@ export function Stats() {
             <Reveal key={stat.title} delay={index * 0.06} className="h-full">
               <article
                 className={cn(
-                  "h-full border-[#007BFF]/15 px-6 py-10 sm:px-8",
+                  "h-full border-[#C6A15B]/20 px-6 py-10 sm:px-8",
                   index < stats.length - 1 && "border-b sm:border-b-0",
                   index < 2 && "sm:border-b xl:border-b-0",
                   (index === 0 || index === 2) && "sm:border-r",
                   index < 3 && "xl:border-r",
                 )}
               >
-                <div className="grid size-11 place-items-center rounded-full bg-[#FFD100]/12 text-[#FFD100] ring-1 ring-[#FFD100]/40">
+                <div className="grid size-11 place-items-center rounded-full bg-[#F7F1E4] text-[#B8893A] ring-1 ring-[#C6A15B]/40">
                   <Icon className="size-5" aria-hidden="true" />
                 </div>
-                <h3 className="font-display mt-5 text-xl font-semibold text-white">{stat.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#C5D7E6]">{stat.description}</p>
+                <h3 className="font-display mt-5 text-xl font-semibold text-[#16181D]">{stat.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#3A4150]">{stat.description}</p>
               </article>
             </Reveal>
           );

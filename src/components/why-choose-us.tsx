@@ -32,7 +32,7 @@ export function WhyChooseUs() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="why-us" className="scroll-mt-24 border-t border-[#007BFF]/15 bg-[#041221] py-24 sm:py-28">
+    <section id="why-us" className="scroll-mt-24 border-t border-[#C6A15B]/25 bg-[#F7F8FB] py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal>
           <SectionHeading eyebrow="Why OneLink" title="Why Choose OneLink?" />
@@ -58,14 +58,14 @@ export function WhyChooseUs() {
                     ? { opacity: 1, y: 0 }
                     : { opacity: [0, 1], y: [18, 0], transition: { duration: 0.55 } },
                 }}
-                className="glow-card flex gap-5 rounded-xl border border-[#007BFF]/25 bg-[#061A2D]/80 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#008CFF]/60 hover:shadow-[0_24px_50px_-30px_rgba(0,140,255,0.8)]"
+                className="glow-card flex gap-5 rounded-2xl border border-[#C6A15B]/35 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#0B63E5]/40"
               >
-                <div className="grid size-12 shrink-0 place-items-center rounded-full bg-[#FFD100]/12 text-[#FFD100] shadow-[0_0_22px_rgba(255,209,0,0.2)] ring-1 ring-[#FFD100]/45">
+                <div className="grid size-12 shrink-0 place-items-center rounded-full bg-[#F7F1E4] text-[#B8893A] ring-1 ring-[#C6A15B]/45">
                   <Icon className="size-5" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-display text-xl font-semibold text-white">{reason.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#C5D7E6]">{reason.description}</p>
+                  <h3 className="font-display text-xl font-semibold text-[#16181D]">{reason.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#3A4150]">{reason.description}</p>
                 </div>
               </motion.article>
             );

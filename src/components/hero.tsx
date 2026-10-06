@@ -32,11 +32,10 @@ export function Hero({ images }: HeroProps) {
   };
 
   return (
-    <section id="home" className="relative isolate min-h-[100svh] overflow-hidden">
-      <div className="absolute inset-0 bg-[#020B14]" />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,#020B14_0%,#061A2D_48%,rgba(0,123,255,0.45)_100%)] opacity-80" />
-      <div className="absolute -top-24 right-[-10%] size-[520px] rounded-full bg-[#007BFF]/25 blur-3xl" />
-      <div className="absolute bottom-0 left-[-8%] size-[420px] rounded-full bg-[#008CFF]/10 blur-3xl" />
+    <section id="home" className="relative isolate min-h-[100svh] overflow-hidden bg-white">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff_0%,#f4f7fb_55%,#f7f1e4_100%)]" />
+      <div className="absolute -top-24 right-[-10%] size-[520px] rounded-full bg-[#0B63E5]/10 blur-3xl" />
+      <div className="absolute bottom-0 left-[-8%] size-[420px] rounded-full bg-[#C6A15B]/20 blur-3xl" />
       <div className="hero-grid absolute inset-0" />
       {particles.map((particle) => (
         <span
@@ -52,20 +51,7 @@ export function Hero({ images }: HeroProps) {
         />
       ))}
 
-      {images.skyline ? (
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] sm:h-[52%]">
-          <Image
-            src={images.skyline}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-bottom opacity-90"
-          />
-        </div>
-      ) : null}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#020B14] via-[#020B14]/75 to-[#020B14]/25" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#020B14] to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
 
       <div className="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pt-32 pb-16 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pt-36">
         <motion.div
@@ -80,9 +66,9 @@ export function Hero({ images }: HeroProps) {
             initial={false}
             variants={{ show: item }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 rounded-md border border-[#FFD100]/50 bg-black/40 px-3 py-1.5 text-sm text-white backdrop-blur-md"
+            className="inline-flex items-center gap-2 rounded-full border border-[#C6A15B]/50 bg-white px-3 py-1.5 text-sm text-[#16181D] shadow-sm"
           >
-            <MapPin className="size-3.5 text-[#FFD100]" aria-hidden="true" />
+            <MapPin className="size-3.5 text-[#B8893A]" aria-hidden="true" />
             Dubai Based
           </motion.p>
 
@@ -90,11 +76,11 @@ export function Hero({ images }: HeroProps) {
             initial={false}
             variants={{ show: item }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display mt-6 text-[2.7rem] leading-[1.02] font-semibold tracking-[-0.04em] text-white sm:text-6xl lg:text-[4.5rem]"
+            className="font-display mt-6 text-[2.7rem] leading-[1.02] font-semibold tracking-[-0.04em] text-[#16181D] sm:text-6xl lg:text-[4.5rem]"
           >
-            Fast. Safe. Reliable.
-            <span className="mt-2 block bg-gradient-to-r from-white to-[#FFD100] bg-clip-text text-transparent">
-              Delivery Across Dubai.
+            The gold standard,
+            <span className="mt-2 block text-[#0B63E5]">
+              door to door.
             </span>
           </motion.h1>
 
@@ -102,7 +88,7 @@ export function Hero({ images }: HeroProps) {
             initial={false}
             variants={{ show: item }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[#D5E4F0] sm:text-lg lg:mx-0"
+            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[#3A4150] sm:text-lg lg:mx-0"
           >
             Professional bike and car delivery solutions built for businesses and customers across Dubai.
           </motion.p>
@@ -134,8 +120,8 @@ export function Hero({ images }: HeroProps) {
             className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start"
           >
             {trust.map((label) => (
-              <li key={label} className="inline-flex items-center gap-2 text-sm text-[#E7F3FF]">
-                <span className="grid size-5 place-items-center rounded-full bg-[#FFD100]/15 text-[#FFD100] ring-1 ring-[#FFD100]/50">
+              <li key={label} className="inline-flex items-center gap-2 text-sm text-[#16181D]">
+                <span className="grid size-5 place-items-center rounded-full bg-[#F7F1E4] text-[#B8893A] ring-1 ring-[#C6A15B]/50">
                   <Check className="size-3" aria-hidden="true" />
                 </span>
                 {label}
@@ -147,14 +133,14 @@ export function Hero({ images }: HeroProps) {
         <div className="relative mx-auto h-[340px] w-full max-w-xl sm:h-[440px] lg:h-[520px]">
           <VehiclePlate
             src={images.car}
-            alt="Blue and yellow delivery car with a roof cargo box"
+            alt="Black and gold OneLink delivery cars in Dubai"
             className="absolute top-0 right-0 w-[82%]"
             label="Car"
             delay={0.2}
           />
           <VehiclePlate
             src={images.bike}
-            alt="Blue and yellow delivery scooter with a cargo box"
+            alt="Black and gold OneLink delivery motorcycle with a cargo box"
             className="absolute bottom-0 left-0 z-10 w-[78%]"
             label="Bike"
             delay={0.45}
@@ -190,13 +176,13 @@ function VehiclePlate({
       <motion.div
         animate={reduce ? undefined : { y: [0, -8, 0] }}
         transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay }}
-        className="overflow-hidden rounded-xl border border-[#FFD100]/55 bg-black shadow-[0_30px_80px_-28px_rgba(255,209,0,0.35)]"
+        className="overflow-hidden rounded-2xl border border-[#C6A15B]/70 bg-white shadow-[0_30px_80px_-28px_rgba(184,137,58,0.45)]"
       >
         <div className="relative aspect-[16/10]">
           {src ? (
             <Image src={src} alt={alt} fill priority sizes="(max-width: 1024px) 80vw, 460px" className="object-cover" />
           ) : (
-            <div className="grid h-full place-items-center text-xs tracking-[0.2em] text-[#9CC9FF]">{label}</div>
+            <div className="grid h-full place-items-center text-xs tracking-[0.2em] text-[#0B63E5]">{label}</div>
           )}
         </div>
       </motion.div>
