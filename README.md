@@ -11,6 +11,8 @@ npm run dev
 
 Open [http://127.0.0.1:43123](http://127.0.0.1:43123).
 
+Production domain: [onelinkdeliveryservices.com](https://onelinkdeliveryservices.com). Host the site on Vercel, add that domain in the project, then point the registrar DNS at Vercel.
+
 ```bash
 npm run lint
 npm run build

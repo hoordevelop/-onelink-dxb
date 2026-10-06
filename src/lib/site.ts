@@ -1,5 +1,6 @@
 export const site = {
   name: "OneLink Delivery Service",
+  url: "https://onelinkdeliveryservices.com",
   location: "Dubai, UAE",
   phoneDisplay: "0562692878",
   phoneTel: "+971562692878",

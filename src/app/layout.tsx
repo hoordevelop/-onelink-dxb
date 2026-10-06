@@ -21,8 +21,10 @@ const description =
   "OneLink Delivery Service provides fast, safe and reliable bike and car delivery solutions across Dubai.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title,
   description,
+  alternates: { canonical: "/" },
   keywords: [
     "Dubai delivery service",
     "bike delivery Dubai",
@@ -35,6 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
+    url: site.url,
     locale: "en_AE",
     type: "website",
     siteName: site.name,
@@ -50,6 +53,7 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: site.name,
+  url: site.url,
   description,
   telephone: site.phoneTel,
   email: site.email,
