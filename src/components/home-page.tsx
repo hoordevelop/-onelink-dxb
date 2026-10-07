@@ -103,29 +103,82 @@ const joy = [
 export function HomePageView({ images }: { images: BrandImages }) {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#f6f7f9]">
-        {images.car ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={images.car}
-            alt=""
-            className="pointer-events-none absolute top-0 right-0 hidden h-full w-[52%] object-cover opacity-25 lg:block"
-          />
-        ) : null}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#f6f7f9] from-35% via-[#f6f7f9]/95 via-60% to-transparent" />
-        <div className="relative mx-auto max-w-[1180px] px-4 py-16 sm:px-6 sm:py-24">
-          <p className="text-[11px] font-semibold tracking-[0.22em] text-[#8B909A]">
-            {site.legalName}
-          </p>
-          <h1 className="mt-4 max-w-xl font-display text-4xl leading-[1.05] font-semibold tracking-tight text-[#1A1D23] sm:text-6xl">
-            The gold standard, door to door.
-          </h1>
-          <p className="mt-6 max-w-md text-base leading-7 text-[#3A4150]">
-            {site.legalName}. Bikes and cars from Meydan, booked and tracked to the door.
-          </p>
-          <Link href="/book" className={`${solid} mt-8`}>
-            Book your shipment
-          </Link>
+      <section className="relative overflow-hidden bg-[#fbf8f2]">
+        <div className="gold-wash pointer-events-none absolute inset-0" />
+        <span className="particle left-[8%] top-16 size-1.5" style={{ animationDelay: "0s" }} />
+        <span className="particle left-[22%] top-28 size-1" style={{ animationDelay: "1.4s" }} />
+        <span className="particle right-[18%] top-20 size-2" style={{ animationDelay: "0.6s" }} />
+        <span className="particle right-[8%] bottom-24 hidden size-1.5 lg:block" style={{ animationDelay: "2s" }} />
+        <div className="relative mx-auto grid max-w-[1180px] items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
+          <div>
+            <p className="rise inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.22em] text-[#8A6428]">
+              <span className="size-1.5 rounded-full bg-[#C6A15B] shadow-[0_0_10px_#C6A15B]" />
+              {site.legalName}
+            </p>
+            <h1 className="rise rise-2 mt-4 max-w-xl font-display text-4xl leading-[1.05] font-semibold tracking-tight text-[#1A1D23] sm:text-6xl">
+              The <span className="gold-shimmer">gold</span> standard, door to door.
+            </h1>
+            <div className="gold-rule rise rise-2 mt-5" />
+            <p className="rise rise-3 mt-5 max-w-md text-base leading-7 text-[#3A4150]">
+              {site.legalName}. Bikes and cars from Meydan, booked and tracked to the door.
+            </p>
+            <div className="rise rise-3 mt-8 flex flex-wrap gap-3">
+              <Link href="/book" className={solid}>
+                Book your shipment
+              </Link>
+              <Link href="/track" className={ghost}>
+                Track Now
+              </Link>
+            </div>
+            <ul className="rise rise-4 mt-8 flex flex-wrap gap-2">
+              {["Fast", "Safe", "Reliable"].map((item) => (
+                <li key={item} className="gold-chip rounded-full px-3 py-1 text-xs font-semibold tracking-wide">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rise rise-3 relative pb-10 sm:pb-8">
+            <div className="gold-frame float-card">
+              {images.car ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={images.car}
+                  alt="Black and gold OneLink delivery cars in Dubai"
+                  className="aspect-[16/11] w-full rounded-[1.35rem] object-cover"
+                />
+              ) : (
+                <div className="aspect-[16/11] rounded-[1.35rem] bg-[#1A1D23]" />
+              )}
+              <p className="absolute top-4 right-4 rounded-full bg-black/75 px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-[#F3E2B3]">
+                DUBAI FLEET
+              </p>
+            </div>
+            {images.bike ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={images.bike}
+                alt=""
+                className="float-badge absolute bottom-0 left-4 hidden w-40 rounded-2xl border-2 border-[#F3E2B3] object-cover shadow-xl sm:block sm:w-48"
+              />
+            ) : null}
+          </div>
+        </div>
+        <div className="relative overflow-hidden border-y border-[#C6A15B]/30 bg-white/70 py-3">
+          <div className="marquee-track flex w-max items-center gap-8 px-4 text-xs font-semibold tracking-[0.28em] text-[#8A6428]">
+            {Array.from({ length: 2 }).map((_, copy) => (
+              <span key={copy} className="flex items-center gap-8">
+                {["FAST", "SAFE", "RELIABLE", "DOOR TO DOOR", "MEYDAN", "DUBAI"].map((word) => (
+                  <span key={`${copy}-${word}`} className="flex items-center gap-8">
+                    {word}
+                    <span className="text-[#C6A15B]" aria-hidden>
+                      ◆
+                    </span>
+                  </span>
+                ))}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -134,6 +187,7 @@ export function HomePageView({ images }: { images: BrandImages }) {
           <Photo
             src={images.bike}
             alt="Black and gold OneLink delivery motorcycle with a cargo box in Dubai"
+            framed
           />
           <div>
             <h2 className="font-display text-3xl leading-tight font-semibold tracking-tight text-[#1A1D23] sm:text-4xl">
@@ -166,7 +220,7 @@ export function HomePageView({ images }: { images: BrandImages }) {
           </h2>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {clients.map((client) => (
-              <article key={client.name} className="rounded-2xl bg-white p-6 shadow-[0_10px_30px_rgba(16,24,40,0.05)]">
+              <article key={client.name} className="glow-card rounded-2xl border border-[#C6A15B]/25 bg-white p-6 shadow-[0_10px_30px_rgba(16,24,40,0.05)] transition duration-300 hover:-translate-y-1">
                 <p className="text-sm leading-6 text-[#3A4150]">&ldquo;{client.quote}&rdquo;</p>
                 <p className="mt-8 text-sm font-medium text-[#1A1D23]">{client.name}</p>
               </article>
@@ -176,7 +230,7 @@ export function HomePageView({ images }: { images: BrandImages }) {
             {featured.map((client) => (
               <article
                 key={client.name}
-                className="overflow-hidden rounded-2xl bg-white shadow-[0_10px_30px_rgba(16,24,40,0.05)]"
+                className="glow-card overflow-hidden rounded-2xl border border-[#C6A15B]/20 bg-white shadow-[0_10px_30px_rgba(16,24,40,0.05)] transition duration-300 hover:-translate-y-1"
               >
                 <BrandBanner kind={client.banner} />
                 <div className="p-6">
@@ -204,7 +258,7 @@ export function HomePageView({ images }: { images: BrandImages }) {
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {services.map((service) => (
-              <article key={service.title} className="overflow-hidden rounded-2xl bg-[#f7f8fa]">
+              <article key={service.title} className="glow-card overflow-hidden rounded-2xl border border-[#C6A15B]/25 bg-white shadow-[0_16px_40px_-28px_rgba(138,100,40,0.8)] transition duration-300 hover:-translate-y-1">
                 <Photo
                   src={service.image === "bike" ? images.bike : images.car}
                   alt=""
@@ -247,7 +301,7 @@ export function HomePageView({ images }: { images: BrandImages }) {
           <div>
             <h2 className="font-display text-4xl leading-tight font-semibold tracking-tight text-[#1A1D23] sm:text-5xl">
               Order, pick, drop,
-              <span className="mt-1 block">repeat</span>
+              <span className="gold-shimmer mt-1 block">repeat</span>
             </h2>
             <p className="mt-5 max-w-md text-sm leading-7 text-[#5C6570]">
               We spread joy from door to door. Schedule a same day, next-day, or weekend drop on
@@ -265,6 +319,7 @@ export function HomePageView({ images }: { images: BrandImages }) {
           <Photo
             src={images.bike}
             alt="OneLink rider bike ready for a city hop"
+            framed
           />
         </div>
         <div className="border-y border-black/5 py-6">
@@ -276,7 +331,7 @@ export function HomePageView({ images }: { images: BrandImages }) {
               {[...joy, ...joy].map((item, index) => (
                 <span
                   key={`${item}-${index}`}
-                  className="rounded-full bg-[#f4f6f8] px-4 py-2 text-sm text-[#3A4150]"
+                  className="gold-chip rounded-full px-4 py-2 text-sm"
                 >
                   {item}
                 </span>
@@ -292,7 +347,7 @@ export function HomePageView({ images }: { images: BrandImages }) {
             Black, gold, and on the road.
           </h2>
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
-            <figure className="overflow-hidden rounded-2xl bg-black">
+            <figure className="overflow-hidden rounded-2xl bg-black ring-2 ring-[#C6A15B]">
               <Photo
                 src={images.car}
                 alt="Black and gold OneLink delivery cars in Dubai"
@@ -302,7 +357,7 @@ export function HomePageView({ images }: { images: BrandImages }) {
                 Executive cars for the parcels that need a closed cabin.
               </figcaption>
             </figure>
-            <figure className="overflow-hidden rounded-2xl bg-black">
+            <figure className="overflow-hidden rounded-2xl bg-black ring-2 ring-[#C6A15B]">
               <Photo
                 src={images.bike}
                 alt="Black and gold OneLink delivery motorcycle with a cargo box"
@@ -358,23 +413,29 @@ function Photo({
   src,
   alt,
   className = "",
+  framed = false,
 }: {
   src: string | null;
   alt: string;
   className?: string;
+  framed?: boolean;
 }) {
   if (!src) {
     return <div className={`aspect-[16/10] rounded-2xl bg-[#E7EBF0] ${className}`} />;
   }
 
-  return (
+  const image = (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
       alt={alt}
-      className={`aspect-[16/10] w-full rounded-2xl object-cover ${className}`}
+      className={`aspect-[16/10] w-full object-cover ${framed ? "rounded-[1.35rem]" : "rounded-2xl"} ${className}`}
     />
   );
+
+  if (!framed) return image;
+
+  return <div className="gold-frame">{image}</div>;
 }
 
 function BrandBanner({ kind }: { kind: "keeta" | "careem" | "noon" }) {

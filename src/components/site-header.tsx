@@ -26,7 +26,7 @@ export function SiteHeader({ logoSrc }: SiteHeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-white">
+    <header className="sticky top-0 z-50 border-b border-[#C6A15B]/30 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-[72px] max-w-[1180px] items-center gap-4 px-4 sm:px-6">
         <Link href="/" className="flex shrink-0 items-center gap-2.5" onClick={closeAll}>
           <LogoMark src={logoSrc} />
@@ -100,6 +100,7 @@ export function SiteHeader({ logoSrc }: SiteHeaderProps) {
           {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
+      <div className="gold-line" aria-hidden />
 
       {mobileOpen ? (
         <div className="max-h-[calc(100svh-72px)] overflow-auto border-t border-black/5 bg-white px-4 py-4 lg:hidden">

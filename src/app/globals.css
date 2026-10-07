@@ -163,8 +163,126 @@
   animation: marquee 32s linear infinite;
 }
 
+.gold-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    #8a6428 0%,
+    #f8e7bf 28%,
+    #c6a15b 46%,
+    #fff6dc 58%,
+    #a67c32 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-rule {
+  height: 2px;
+  width: 7.5rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8a6428, #f3e2b3, #c6a15b);
+}
+
+.gold-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c6a15b 20%, #fff1cc 50%, #c6a15b 80%, transparent);
+  background-size: 200% 100%;
+}
+
+.gold-wash {
+  background:
+    radial-gradient(ellipse 50% 60% at 85% 40%, rgba(198, 161, 91, 0.28), transparent 60%),
+    radial-gradient(ellipse 40% 50% at 10% 90%, rgba(47, 111, 237, 0.08), transparent 70%);
+}
+
+.gold-frame {
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 3px;
+  background: linear-gradient(140deg, #f8e7bf, #c6a15b 35%, #6d5220 70%, #f3e2b3);
+  box-shadow: 0 24px 60px -28px rgba(138, 100, 40, 0.65);
+}
+
+.gold-frame > img,
+.gold-frame > .gold-frame-media {
+  display: block;
+  width: 100%;
+  border-radius: 1.35rem;
+}
+
+.gold-chip {
+  border: 1px solid rgba(198, 161, 91, 0.55);
+  background: rgba(255, 250, 240, 0.92);
+  color: #6d5220;
+}
+
+.float-card {
+  animation: float-card 6.5s ease-in-out infinite;
+}
+
+.float-badge {
+  animation: float-card 5.2s ease-in-out infinite reverse;
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer-x {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gold-shimmer,
+  .gold-line {
+    animation: shimmer-x 4.8s linear infinite;
+  }
+
+  .rise {
+    animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .rise-2 {
+    animation-delay: 0.12s;
+  }
+
+  .rise-3 {
+    animation-delay: 0.24s;
+  }
+
+  .rise-4 {
+    animation-delay: 0.36s;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
+  .marquee-track,
+  .float-card,
+  .float-badge {
     animation: none;
   }
 }
@@ -289,7 +407,12 @@
 
   .particle,
   .glow-card::before,
-  .whatsapp-float::after {
+  .whatsapp-float::after,
+  .gold-shimmer,
+  .gold-line,
+  .float-card,
+  .float-badge,
+  .rise {
     animation: none !important;
   }
 }
